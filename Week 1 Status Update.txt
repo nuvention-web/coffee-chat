@@ -1,0 +1,14 @@
+Week 1 Status Update
+--------------------
+
+Accomplishments this week:
+ • Finalized Team/Idea • 15 Interviews
+ • Started Business Model Canvas • Need Hypothesis • High-level Architecture Design/Architecture Worksheet
+    ◦ Web App using Node.js and MongoDB or maybe SQL
+ • Broke down and assigned tasks in 5 week planner
+Planned efforts in next week: • Complete Target Opportunity Brief • Interviews on platform mock-up, research on UI design
+ • Basic mock-up of UI design
+Issues your team is facing: • Potentially losing hackers from the team
+ • Narrowing down Beachhead market
+ • Determining UI design
+ • Proving that there is a market for the idea
