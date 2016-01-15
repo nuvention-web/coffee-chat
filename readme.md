@@ -21,7 +21,7 @@ The easiest way to install git is through the Xcode Command Line Tools. On Maver
 
 ####Install Git on Linux:
 ```
-$ sudo apt-get install git-all
+$ sudo apt-get install git
 ```
 
 ###Mac Setup:
