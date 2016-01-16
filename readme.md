@@ -1,6 +1,5 @@
-Coffee Chat!
------------
-
+CoffeeChat
+===========
 
 Tools:
 -----------
@@ -9,6 +8,7 @@ Tools:
 	- http://nodeschool.io/
 - Express: http://expressjs.com/
 - MySQL: https://github.com/felixge/node-mysql
+- Simple Oauth2: https://github.com/andreareginato/simple-oauth2
 - Grunt: http://gruntjs.com/
 
 Setup:

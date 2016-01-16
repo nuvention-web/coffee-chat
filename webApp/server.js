@@ -1,29 +1,37 @@
+// require modules
 var express = require('express'),
     app = express(),
-    fs = require('fs'),
     request = require('request'),
-    oauth2 = require('simple-oauth2')({
+    oauth2 = require('simple-oauth2'),
+    path = require('path');
+
+// App settings
+app.set('views', './views');
+app.use(express.static('public'));
+
+// LinkedIn Oauth2
+var linkedInOauth2 = oauth2({
         clientID: '77yzm37wv3z90u',
         clientSecret: '3JBCCGjo7FT3YPMB',
         site: 'https://www.linkedin.com',
         authorizationPath: '/uas/oauth2/authorization',
         tokenPath: '/uas/oauth2/accessToken'
-    }),
-    resource = null;
+    });
 
 // Authorization oauth2 URI
-var authorization_uri = oauth2.authCode.authorizeURL({
+var authorization_uri = linkedInOauth2.authCode.authorizeURL({
     redirect_uri: 'http://localhost:1337/callback',
     scope: 'r_basicprofile',
     state: 'example-state-for-now-but-we-really-need-to-change-this'
 });
 
-app.get('/home', function(req, res) {
-    res.send('Welcome to NU Coffee Chat!');
+// Homepage
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/views/index.html'));
 });
 
-app.get('/', function(req, res) {
-    res.send('Hello<br><a href="/auth">Log in with Github</a>');
+app.get('/success', function(req, res) {
+    res.send('Success!\n Token: ' + token['token']['access_token']);
 });
 
 // Initial page redirecting to Github
@@ -39,7 +47,7 @@ app.get('/callback', function(req, res) {
     console.log(code);
     console.log(state);
 
-    oauth2.authCode.getToken({
+    linkedInOauth2.authCode.getToken({
             code: code,
             state: state,
             redirect_uri: 'http://localhost:1337/callback'
@@ -51,28 +59,31 @@ app.get('/callback', function(req, res) {
             console.log('Access Token Error', error.message);
         }
 
-        token = oauth2.accessToken.create(result);
+        token = linkedInOauth2.accessToken.create(result);
 
+        // this is where we need to do something with their token...
         console.log(token);
+
+        res.redirect('/');
     }
 });
-
-fs.readFile('./Resources/resources.txt', function(err, data) {
-    if (err) throw err;
-    var array = data.toString().split("\n");
-    for (i in array) {
-        console.log(array[i]);
-        resource = require(array[i]);
-        app.get('/' + resource.path, function(req, res) {
-            resource.handle(req, res);
-        });
-    }
-});
-
-
 
 var port = process.env.PORT || 1337;
 
 app.listen(port, function() {
-    console.log('Example app listening on port port!');
+    console.log('Example app listening on port %s!', port);
 });
+
+// var fs = require('fs'),
+// var resource = null;
+// fs.readFile('./Resources/resources.txt', function(err, data) {
+//     if (err) throw err;
+//     var array = data.toString().split("\n");
+//     for (i in array) {
+//         console.log(array[i]);
+//         resource = require(array[i]);
+//         app.get('/' + resource.path, function(req, res) {
+//             resource.handle(req, res);
+//         });
+//     }
+// });
