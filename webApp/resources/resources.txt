@@ -1,1 +1,1 @@
-./resources/dbTest.js
+./resources/cat/oauth/getUserID.js

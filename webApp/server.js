@@ -4,10 +4,13 @@ var express = require('express'),
     request = require('request'),
     oauth2 = require('simple-oauth2'),
     path = require('path');
+    bodyParser = require('body-parser');
 
 // App settings
 app.set('views', './views');
 app.use(express.static('public'));
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // LinkedIn Oauth2
 var linkedInOauth2 = oauth2({
@@ -63,8 +66,65 @@ app.get('/callback', function(req, res) {
 
         // this is where we need to do something with their token...
         console.log(token);
+        createOAuthUser(token.token.access_token)
 
         res.redirect('/');
+    }
+});
+
+function createOAuthUser(token)
+{
+    console.log('createOAuthUser token', token);
+    var http = require('http'); 
+
+    var bodyString = JSON.stringify({
+        accessToken: token
+    });
+
+    var options = {
+      host: 'localhost',
+      port: 1337,
+      path: '/cat/oauth/getUserID',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': bodyString.length
+      },
+    };
+
+    console.log('createOAuthUser body', bodyString);
+
+    callback = function(response) {
+        var userID = '';
+        response.on('data', function(d) {
+            userID= JSON.parse(d).user;
+        });
+        response.on('end', function() {
+            console.log('server.js: got userID '+ userID);
+            
+        });
+
+        req.on('error', function(e) {
+            console.log('server.js: createOAuthUser met error '+ e);
+        });
+    }
+
+    var req = http.request(options, callback);
+    req.write(bodyString);
+    req.end();
+}
+
+var fs = require('fs');
+var resource = null;
+fs.readFile('./Resources/resources.txt', function(err, data) {
+    if (err) throw err;
+    var array = data.toString().split("\n");
+    for (i in array) {
+        console.log(array[i]);
+        resource = require(array[i]);
+        app.post('/' + resource.path, function(req, res) {
+            resource.postHandle(req, res);
+        });
     }
 });
 
@@ -74,16 +134,3 @@ app.listen(port, function() {
     console.log('Example app listening on port %s!', port);
 });
 
-// var fs = require('fs'),
-// var resource = null;
-// fs.readFile('./Resources/resources.txt', function(err, data) {
-//     if (err) throw err;
-//     var array = data.toString().split("\n");
-//     for (i in array) {
-//         console.log(array[i]);
-//         resource = require(array[i]);
-//         app.get('/' + resource.path, function(req, res) {
-//             resource.handle(req, res);
-//         });
-//     }
-// });
