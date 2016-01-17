@@ -1,6 +1,5 @@
-Coffee Chat!
------------
-
+CoffeeChat
+===========
 
 Tools:
 -----------
@@ -9,6 +8,7 @@ Tools:
 	- http://nodeschool.io/
 - Express: http://expressjs.com/
 - MySQL: https://github.com/felixge/node-mysql
+- Simple Oauth2: https://github.com/andreareginato/simple-oauth2
 - Grunt: http://gruntjs.com/
 
 Setup:
@@ -21,7 +21,7 @@ The easiest way to install git is through the Xcode Command Line Tools. On Maver
 
 ####Install Git on Linux:
 ```
-$ sudo apt-get install git-all
+$ sudo apt-get install git
 ```
 
 ###Mac Setup:
