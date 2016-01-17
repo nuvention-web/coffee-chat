@@ -124,7 +124,7 @@ app.use(myLogger);
 
 var fs = require('fs');
 var resource = null;
-fs.readFile('./Resources/resources.txt', function(err, data) {
+fs.readFile('./resources/resources.txt', function(err, data) {
     if (err) throw err;
     var array = data.toString().split("\n");
     for (i in array) {
