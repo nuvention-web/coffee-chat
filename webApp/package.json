@@ -1,0 +1,18 @@
+{
+  "name": "coffee-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "coffee-chat",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "node-mysql": "^0.4.2",
+    "request": "^2.67.0",
+    "simple-oauth2": "^0.3.0"
+  }
+}
