@@ -11,6 +11,53 @@ var pool = mysql.createPool({
     database: "coffeechat"
 });
 
+exports.getUserName = function(userId,res){
+    console.log('dbConn.getUserName called ');
+
+          pool.getConnection(function(err, connection) {
+            if (err) {
+                connection.release();
+                console.log('Error in connection database');
+
+                res.status(500).json({error:'Error in connection database'});
+                return;
+            }
+
+            console.log('connected as id ' + connection.threadId);
+
+            var sql = "SELECT * FROM ?? WHERE ?? = ?";
+            var inserts = ['users', 'id', userId];
+            sql = mysql.format(sql, inserts);
+
+            connection.query(sql, function(err, rows) {
+                if (!err) {
+                    if(rows.length > 0 ) {
+                         console.log("dbConn: found user: "+ userId);
+                         res.json({id:userId, firstName:rows[0].firstName, lastName:rows[0].lastName});
+                    }
+                    else
+                    {
+                        console.log("dbConn: didnt find user: "+ id);
+                        res.status(400).json({error:'Invalid UserID'});
+                        
+                    }
+                           
+                }
+
+            });
+
+            connection.on('error', function(err) {
+                console.log('Error in connection database');
+
+                res.status(500).json({error:'Error in connection database'});
+                return;
+
+            });
+        });
+ 
+
+}
+
 exports.createUserIfNotExist = function(firstName, headline, id, lastName, accessToken,res) {
     console.log('dbConn.createUserIfNotExist called ');
 
