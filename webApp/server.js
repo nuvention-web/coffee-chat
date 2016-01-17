@@ -8,6 +8,7 @@ var express = require('express'),
 
 // App settings
 app.set('views', './views');
+app.set('view engine', 'jade');
 app.use(express.static('public'));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -30,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 // Homepage
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/views/index.html'));
+    res.render('index');
 });
 
 // app.get('/success', function(req, res) {
