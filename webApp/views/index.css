@@ -1,0 +1,37 @@
+#header {
+	padding:5px;
+	height: 100px;
+}
+#signup {
+	float:right;
+}
+#login-background{
+	background-color: #99CCCC;
+}
+#login {
+	background: white;
+	height: 200px;
+	width:33%;
+	text-align: center;
+	display: inline-block;
+	color: #99CCCC;
+}
+#step1 {
+	width: 33%;
+	float: left;
+}
+#step2 {
+	width:33%;
+	display: inline-block;
+}
+#step3 {
+	width:33%;
+	float: right;
+}
+#banner {
+	background-color: #99CCCC;
+	color: white;
+	text-align: center;
+	font-size: 30px;
+	padding: 50px;
+}
