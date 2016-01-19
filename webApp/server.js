@@ -3,13 +3,14 @@ var express = require('express'),
     app = express(),
     request = require('request'),
     // oauth2 = require('simple-oauth2'),
-    // path = require('path');
+    path = require('path');
     bodyParser = require('body-parser');
 
 // App settings
 app.set('views', './views');
-app.set('view engine', 'jade');
-app.use(express.static('public'));
+app.use('/', express.static(__dirname));
+//app.set('view engine', 'jade');
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
@@ -31,7 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 // Homepage
 app.get('/', function(req, res) {
-    res.render('index');
+    res.sendFile(path.join(__dirname, '/views/index.html'));
 });
 
 // app.get('/success', function(req, res) {

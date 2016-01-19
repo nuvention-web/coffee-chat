@@ -1,0 +1,109 @@
+*,
+*:after,
+*:before {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-font-smoothing:antialiased;
+    font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+}
+
+body {
+    font-family: 'Rokkitt', serif;
+    background-color: #99CCCC;
+}
+
+#header {
+	padding: 5px;
+	height: 64px;
+    background:#FFF;
+    overflow:hidden;
+}
+#header img {
+    height: 48px;
+    width: auto;
+}
+#signup {
+    margin: 18px 5px;
+    font-size: 20px;
+	float:right;
+}
+#login {
+	background: white;
+	height: auto;
+	width: auto;
+    margin:30px 33%;
+	color: #709CA8;
+    font-size: 24px;
+    text-align: center;
+    padding: 30px;
+    border-radius: 30px;
+}
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    width: 215px;
+    height: 40px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-image: url('../image/LinkedIn-Default.png');
+    background-size: contain;
+}
+.btn:active {
+    background-image: url('../image/LinkedIn-Active.png');
+}
+.btn:hover {
+    background-image: url('../image/LinkedIn-Hover.png');
+}
+#steps {
+    height: auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+}
+#circle {
+    width: 50%;
+    margin: 10 auto;
+    padding:3px;
+    background: #99CCCC;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+#circle img {
+    width: 100%;
+    height: auto;
+    background: #FFF;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+#step1 {
+	width: 31%;
+    padding: 1%;
+	float: left;
+}
+#step2 {
+	width: 31%;
+    padding: 1%;
+	display: inline-block;
+}
+#step3 {
+	width:31%;
+    padding: 1%;
+    float: right;
+}
+#banner {
+	color: white;
+	text-align: center;
+	font-size: 36px;
+	padding: 50px;
+}
