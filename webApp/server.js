@@ -8,9 +8,10 @@ var express = require('express'),
 
 // App settings
 app.set('views', './views');
-app.use('/', express.static(__dirname));
+app.use('/image', express.static('image'));
+app.use('/public', express.static('public'));
+app.use('/style', express.static('style'));
 //app.set('view engine', 'jade');
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
@@ -33,6 +34,10 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 // Homepage
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '/views/index.html'));
+});
+
+app.get('/browse', function(req, res) {
+    res.sendFile(path.join(__dirname, '/views/browse.html'));
 });
 
 // app.get('/success', function(req, res) {
