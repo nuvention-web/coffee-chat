@@ -1,0 +1,57 @@
+html
+	head
+		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css")
+		link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css')
+		link(rel="stylesheet" href="/style/index.css")
+	body
+		include ./includes/header.jade
+		div(class="parallax-container valign-wrapper")
+			div(class="parallax")
+				img(src="/image/coffee-chat-second-text.jpg")
+			div(class="row container valign")
+				h3(class="center header text-orange") Real Advice from Real Industry Leaders
+				div(class="center")
+					a(class="linked-in-btn" href="/wild/oauth/auth" title="Login with LinkedIn")
+				h5(class="center") Networking Redefined.
+				h5(class="center") The fastest-growing network for professional millenials.
+		div(class="section white")
+			div(class="row container")
+				h3(class="center header coffee-chat-divider") Expert of the Week
+				div(class="col s12 m6 l4")
+					include ./includes/card.jade
+				div(class="col s12 m6 l4")
+					h5 About
+					div(class="text-grey")
+						div Product Manager, Business Intelligence, Aereo
+						div Special Operations, Warby Parker Marketing, Quirky
+						div Special Customer Operations, Simon Schuster
+						div Associate, Triage Consulting Group
+						div MBA from NYU Stern Business School
+						div University of California San Diego
+					h5 Interested in connecting?
+					div(class="text-grey")
+						h6 Sign up now for a chance to connect!
+					div(class="center")
+						a(class="linked-in-btn" href="/wild/oauth/auth" title="Login with LinkedIn")
+				div(class="col s12 m6 l4")
+					h5 What is expert of the week?
+					div(class="text-grey")
+						div Every week, we will feature an expert in a field that interests you!
+		div(class="section grey lighten-3")
+			div(class="row container")
+				h3(class="center header coffee-chat-divider") Schedule a Coffee Chat
+				h6(class="center") Based on your interests, the indsutry leaders below are eager to coffee chat with you. 
+				h6(class="center") Select the people that you would like to be paired with.
+				each person, index in people
+					div(class="col s12 m6 l3")
+						include ./includes/card.jade
+		div(class="parallax-container valign-wrapper")
+			div(class="parallax")
+				img(src="/image/coffee-chat-first.jpg")
+			div(class="row container valign")
+				h4(class="center") Real Advice from Real Industry Leaders		
+		include ./includes/footer.jade
+
+	script(src="https://code.jquery.com/jquery-2.2.0.min.js")
+	script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js")
+	script(src="/public/js/index.js")

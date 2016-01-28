@@ -4,122 +4,79 @@ var express = require('express'),
     request = require('request'),
     // oauth2 = require('simple-oauth2'),
     path = require('path');
-    bodyParser = require('body-parser');
+bodyParser = require('body-parser');
 
 // App settings
 app.set('views', './views');
-app.use('/', express.static(__dirname));
-//app.set('view engine', 'jade');
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/image', express.static('image'));
+app.use('/public', express.static('public'));
+app.use('/style', express.static('style'));
+app.set('view engine', 'jade');
 app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-
-// LinkedIn Oauth2
-// var linkedInOauth2 = oauth2({
-//         clientID: '77yzm37wv3z90u',
-//         clientSecret: '3JBCCGjo7FT3YPMB',
-//         site: 'https://www.linkedin.com',
-//         authorizationPath: '/uas/oauth2/authorization',
-//         tokenPath: '/uas/oauth2/accessToken'
-//     });
-
-// // Authorization oauth2 URI
-// var authorization_uri = linkedInOauth2.authCode.authorizeURL({
-//     redirect_uri: 'http://localhost:1337/callback',
-//     scope: 'r_basicprofile',
-//     state: 'example-state-for-now-but-we-really-need-to-change-this'
-// });
+app.use(bodyParser.urlencoded({
+    extended: true
+})); // for parsing application/x-www-form-urlencoded
 
 // Homepage
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '/views/index.html'));
+    fs.readFile('./public/browse.json', function(err, data) {
+        if (err) {
+            throw err;
+        }
+
+        var people = JSON.parse(data);
+
+        res.render('index', {
+            people: people,
+            person: {
+                "name": "Lisa Eng",
+                "image": "https://media.licdn.com/media/AAEAAQAAAAAAAALfAAAAJDU2YWFiZGM0LTgxZmEtNDcyZC05ODI4LTViZGM1YTg5MDkyOQ.jpg",
+                "bio": "",
+                "tags": ["strategy", "marketing", "tech", "SF", "49ers", "dogs", "consulting", "productmanager"],
+                "job": "Product at Oracle Data Cloud",
+                "quote": "I am a dog-lover, 49ers fan, and tech enthusiast. Previously in New York, I live in San Francisco now with my husband and malti-poo dog, Izzo. Yes named after Coach Izzo!"
+            }
+        });
+    });
 });
 
-// app.get('/success', function(req, res) {
-//     res.send('Success!\n Token: ' + token['token']['access_token']);
-// });
+app.get('/match', function(req, res) {
+    res.render('match', {
+        user: {
+            "name": "Student",
+            "image": "http://d9hhrg4mnvzow.cloudfront.net/womensilab.com/coffeechat2/bb0185b8-sussana-shuman_07107207106x000002.jpg",
+            "bio": "",
+            "tags": ["tech", "sf", "49ers"],
+            "job": "Northwestern University"
+        },
+        match: {
+            "name": "Lisa Eng",
+            "image": "https://media.licdn.com/media/AAEAAQAAAAAAAALfAAAAJDU2YWFiZGM0LTgxZmEtNDcyZC05ODI4LTViZGM1YTg5MDkyOQ.jpg",
+            "bio": "",
+            "tags": ["strategy", "marketing", "tech", "SF", "49ers", "dogs", "consulting", "productmanager"],
+            "job": "Product at Oracle Data Cloud",
+            "quote": "I am a dog-lover, 49ers fan, and tech enthusiast. Previously in New York, I live in San Francisco now with my husband and malti-poo dog, Izzo. Yes named after Coach Izzo!"
+        }
+    });
+});
 
-// Initial page redirecting to Github
-// app.get('/auth', function(req, res) {
-//     res.redirect(authorization_uri);
-// });
+app.get('/browse', function(req, res) {
+    fs.readFile('./public/browse.json', function(err, data) {
+        if (err) {
+            throw err;
+        }
 
+        var people = JSON.parse(data);
 
-// Callback service parsing the authorization token and asking for the access token
-// app.get('/callback', function(req, res) {
-//     var code = req.query.code,
-//         state = req.query.state;
-//     console.log('/callback');
-//     console.log(code);
-//     console.log(state);
+        res.render('browse', {
+            people: people
+        });
+    });
+});
 
-//     linkedInOauth2.authCode.getToken({
-//             code: code,
-//             state: state,
-//             redirect_uri: 'http://localhost:1337/callback'
-//         },
-//         saveToken);
-
-//     function saveToken(error, result) {
-//         if (error) {
-//             console.log('Access Token Error', error.message);
-//         }
-
-//         token = linkedInOauth2.accessToken.create(result);
-
-//         // this is where we need to do something with their token...
-//         console.log(token);
-//         createOAuthUser(token.token.access_token)
-
-//         res.redirect('/');
-//     }
-// });
-
-// function createOAuthUser(token)
-// {
-//     console.log('createOAuthUser token', token);
-//     var http = require('http'); 
-
-//     var bodyString = JSON.stringify({
-//         accessToken: token
-//     });
-
-//     var options = {
-//       host: 'localhost',
-//       port: 1337,
-//       path: '/cat/oauth/getUserID',
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//         'Content-Length': bodyString.length
-//       },
-//     };
-
-//     console.log('createOAuthUser body', bodyString);
-
-//     callback = function(response) {
-//         var userID = '';
-//         response.on('data', function(d) {
-//             userID= JSON.parse(d).user;
-//         });
-//         response.on('end', function() {
-//             console.log('server.js: got userID '+ userID);
-            
-//         });
-
-//         req.on('error', function(e) {
-//             console.log('server.js: createOAuthUser met error '+ e);
-//         });
-//     }
-
-//     var req = http.request(options, callback);
-//     req.write(bodyString);
-//     req.end();
-// }
-
-var myLogger = function (req, res, next) {
-  console.log('serverjs - new request: '+req.path);
-  next();
+var myLogger = function(req, res, next) {
+    console.log('serverjs - new request: ' + req.path);
+    next();
 };
 
 app.use(myLogger);
@@ -132,21 +89,18 @@ fs.readFile('./resources/resources.txt', function(err, data) {
     for (i in array) {
         console.log(array[i]);
         resource = require(array[i]);
-        if (typeof resource.getHandle === 'function')
-        {
-            console.log(resource.path+" GET");
-             app.get('/' + resource.path, resource.getHandle );
+        if (typeof resource.getHandle === 'function') {
+            console.log(resource.path + " GET");
+            app.get('/' + resource.path, resource.getHandle);
         }
-        if (typeof resource.postHandle === 'function')
-        {
-            console.log(resource.path+" POST");
-             app.post('/' + resource.path, resource.postHandle);
+        if (typeof resource.postHandle === 'function') {
+            console.log(resource.path + " POST");
+            app.post('/' + resource.path, resource.postHandle);
         }
-        if (typeof resource.putHandle === 'function')
-        {
-            console.log(resource.path+" PUT");
-             app.put('/' + resource.path, resource.putHandle);
-        }       
+        if (typeof resource.putHandle === 'function') {
+            console.log(resource.path + " PUT");
+            app.put('/' + resource.path, resource.putHandle);
+        }
     }
 });
 
@@ -155,4 +109,3 @@ var port = process.env.PORT || 1337;
 app.listen(port, function() {
     console.log('Example app listening on port %s!', port);
 });
-

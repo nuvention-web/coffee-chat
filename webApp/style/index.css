@@ -1,48 +1,4 @@
-*,
-*:after,
-*:before {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    -webkit-font-smoothing:antialiased;
-    font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-}
-
-body {
-    font-family: 'Rokkitt', serif;
-    background-color: #99CCCC;
-}
-
-#header {
-	padding: 5px;
-	height: 64px;
-    background:#FFF;
-    overflow:hidden;
-}
-#header img {
-    height: 48px;
-    width: auto;
-}
-#signup {
-    margin: 18px 5px;
-    font-size: 20px;
-	float:right;
-}
-#login {
-	background: white;
-	height: auto;
-	width: auto;
-    margin:30px 33%;
-	color: #709CA8;
-    font-size: 24px;
-    text-align: center;
-    padding: 30px;
-    border-radius: 30px;
-}
-.btn {
+.linked-in-btn {
     display: inline-block;
     margin-top: 20px;
     width: 215px;
@@ -52,58 +8,48 @@ body {
     background-image: url('../image/LinkedIn-Default.png');
     background-size: contain;
 }
-.btn:active {
+
+.linked-in-btn:active {
     background-image: url('../image/LinkedIn-Active.png');
 }
-.btn:hover {
+
+.linked-in-btn:hover {
     background-image: url('../image/LinkedIn-Hover.png');
 }
-#steps {
-    height: auto;
-    padding: 20px;
-    text-align: center;
-    background-color: #fff;
+
+.coffe-chat-logo {
+    height: 100%;
 }
-#circle {
-    width: 50%;
-    margin: 10 auto;
-    padding:3px;
-    background: #99CCCC;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
+
+.parallax-container {
+    height: 400px;
 }
-#circle img {
-    width: 100%;
-    height: auto;
-    background: #FFF;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
+
+.text-orange {
+    color: #EC6445;
 }
-.h2 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
+
+.text-grey {
+    color: #635A5D;
 }
-#step1 {
-	width: 31%;
-    padding: 1%;
-	float: left;
+
+.chip {
+    margin-right: 5px;
+    margin-bottom: 5px;
 }
-#step2 {
-	width: 31%;
-    padding: 1%;
-	display: inline-block;
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
 }
-#step3 {
-	width:31%;
-    padding: 1%;
-    float: right;
+
+.coffee-chat-divider:before, .coffee-chat-divider:after {
+  content: "";
+  display: inline-block;
+  width: 30%;
+  margin: 0 .5em 0 -55%;
+  vertical-align: middle;
+  border-bottom: 1px solid;
 }
-#banner {
-	color: white;
-	text-align: center;
-	font-size: 36px;
-	padding: 50px;
+.coffee-chat-divider:after {
+  margin: 0 -55% 0 .5em;
 }
