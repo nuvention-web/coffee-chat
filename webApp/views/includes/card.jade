@@ -3,7 +3,7 @@ div(class="card z-depth-1")
 		img(class="activator" src=person.image)
 		span(class="card-title")=person.name
 	div(class="card-content")
-		p=person.job
+		p(class="truncate")=person.job
 	div(class="card-reveal")
 		span(class="card-title")=person.name
 		p=person.job

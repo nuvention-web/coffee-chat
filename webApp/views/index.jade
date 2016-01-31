@@ -10,6 +10,8 @@ html
 				img(src="/image/coffee-chat-second-text.jpg")
 			div(class="row container valign")
 				h3(class="center header text-orange") Real Advice from Real Industry Leaders
+				//- h3(class="center header text-orange") Real Advice from
+				//- h3(class="center header text-orange") Real Industry Leaders
 				div(class="center")
 					a(class="linked-in-btn" href="/wild/oauth/auth" title="Login with LinkedIn")
 				h5(class="center") Networking Redefined.
@@ -22,12 +24,12 @@ html
 				div(class="col s12 m6 l4")
 					h5 About
 					div(class="text-grey")
-						div Product Manager, Business Intelligence, Aereo
-						div Special Operations, Warby Parker Marketing, Quirky
-						div Special Customer Operations, Simon Schuster
-						div Associate, Triage Consulting Group
-						div MBA from NYU Stern Business School
-						div University of California San Diego
+						h6 Work
+						each work in person.work
+							div=work
+						h6 Education
+						each education in person.education
+							div=education
 					h5 Interested in connecting?
 					div(class="text-grey")
 						h6 Sign up now for a chance to connect!
@@ -49,7 +51,8 @@ html
 			div(class="parallax")
 				img(src="/image/coffee-chat-first.jpg")
 			div(class="row container valign")
-				h4(class="center") Real Advice from Real Industry Leaders		
+				h4(class="center") Real Advice from Real Industry Leaders	
+		include ./includes/partners.jade
 		include ./includes/footer.jade
 
 	script(src="https://code.jquery.com/jquery-2.2.0.min.js")
