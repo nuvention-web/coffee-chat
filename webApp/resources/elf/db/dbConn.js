@@ -1,4 +1,5 @@
 var mysql = require("mysql");
+var Promise = require('promise');
 
 var exports = module.exports = {};
 
@@ -11,50 +12,55 @@ var pool = mysql.createPool({
     database: "coffeechat"
 });
 
-exports.getUserName = function(userId,res){
-    console.log('dbConn.getUserName called ');
+exports.clearup = function(){
+    console.log('Going to release DB connection pool');
+    pool.end(function (err) { //release all connections
+        console.log('Error in release pool '+err);
+    });
+}
 
-          pool.getConnection(function(err, connection) {
+exports.getUserName = function(userId){
+
+    return new Promise(function(resolve, reject) {
+           pool.getConnection(function(err, connection) {
             if (err) {
                 connection.release();
                 console.log('Error in connection database');
 
-                res.status(500).json({error:'Error in connection database'});
-                return;
+                reject('Error in connection database');
             }
-
             console.log('connected as id ' + connection.threadId);
 
             var sql = "SELECT * FROM ?? WHERE ?? = ?";
             var inserts = ['users', 'id', userId];
             sql = mysql.format(sql, inserts);
 
-            connection.query(sql, function(err, rows) {
-                if (!err) {
-                    if(rows.length > 0 ) {
-                         console.log("dbConn: found user: "+ userId);
-                         res.json({id:userId, firstName:rows[0].firstName, lastName:rows[0].lastName});
-                    }
-                    else
-                    {
-                        console.log("dbConn: didnt find user: "+ id);
-                        res.status(400).json({error:'Invalid UserID'});
-                        
-                    }
-                           
+            connection.query(sql,function(err, rows) {
+                if(rows.length > 0 ) {
+                    console.log("dbConn: found user: "+ userId);
+                    var result='{"id":"'+userId+'","firstName":"'+rows[0].firstName+'","lastName":"'+rows[0].lastName+'"}';
+                    connection.release();
+                    resolve(result);
+                
                 }
-
+                else
+                {
+                    console.log("dbConn: didnt find user: "+ userId);
+                     connection.release();
+                    reject('{"error":"400", "errorMsg":"Invalid UserID"}');
+                                
+                }
             });
+                    
 
-            connection.on('error', function(err) {
+            connection.on('error',function(err) {
                 console.log('Error in connection database');
-
-                res.status(500).json({error:'Error in connection database'});
-                return;
+                connection.release();
+                reject('{"error":"500","errorMsg": "Error in connection database"}');
 
             });
         });
- 
+       });
 
 }
 
@@ -67,7 +73,8 @@ exports.createUserIfNotExist = function(firstName, headline, id, lastName, acces
                 connection.release();
                 console.log('Error in connection database');
 
-                res.status(500).json({error:'Error in connection database'});
+                res.status(500)
+
                 return;
             }
 
