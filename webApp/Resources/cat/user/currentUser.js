@@ -1,14 +1,11 @@
 var exports = module.exports = {};
 var dbConn = require("../../elf/db/dbConn.js");
 
-// var urlLinkedin='api.linkedin.com';
-// var urlBasicProfie='/v1/people/~?format=json';
-
-exports.path='cat/user/:userId/getUserName';
+exports.path='cat/user/currentUser';
 
 exports.getHandle=function (req,res) {
 	console.log('user/getUserName: userID: request received');
-	var userId =req.params.userId;
+	var userId =req.loginUserID;
 	console.log('user/getUserName: userId: '+ userId);
 	getUserName(userId,res);
 }
@@ -19,7 +16,7 @@ function getUserName(userId,res)
 	return p1.then(
         function(val)
         {
-           console.log("getUserName: then: "+ val);
+           console.log("currentUser: then: "+ val);
            res.json(JSON.parse(val));
         }
     ).catch(

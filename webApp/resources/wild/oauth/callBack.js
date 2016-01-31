@@ -29,13 +29,13 @@ exports.getHandle=function (req,res) {
 
         // this is where we need to do something with their token...
         console.log(token);
-        createOAuthUser(token.token.access_token)
+        createOAuthUser(token.token.access_token,res)
 
-        res.redirect('/');
+        
     }
 }
 
-function createOAuthUser(token)
+function createOAuthUser(token,res)
 {
     console.log('createOAuthUser token', token);
     var http = require('http'); 
@@ -64,11 +64,14 @@ function createOAuthUser(token)
         });
         response.on('end', function() {
             console.log('server.js: got userID '+ userID);
+            res.cookie('userID' , userID,{ maxAge: 900000, httpOnly: false });
+            res.redirect('/');
             
         });
 
         req.on('error', function(e) {
             console.log('server.js: createOAuthUser met error '+ e);
+            res.redirect('/');
         });
     }
 
