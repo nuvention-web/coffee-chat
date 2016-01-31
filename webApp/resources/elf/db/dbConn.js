@@ -48,7 +48,7 @@ exports.getUserName = function(userId){
                     else
                     {
                         console.log("dbConn: didnt find user: "+ userId);
-                         connection.release();
+                        connection.release();
                         reject('{"error":"400", "errorMsg":"Invalid UserID"}');
                                     
                     }
@@ -73,6 +73,9 @@ exports.getUserName = function(userId){
        });
 
 }
+
+
+
 exports.createUserIfNotExist = function(obj, accessToken) {
     console.log('dbConn.createUserIfNotExist called ');
         return new Promise(function(resolve, reject) {
@@ -163,17 +166,17 @@ exports.createUserIfNotExist = function(obj, accessToken) {
 
                                 connection.query("INSERT INTO user_basic SET ?", post, function(err, result) {
                                      console.log("createUserIfNotExist: inside the  insert callback: "+ err+" ... "+result);
-
-                                    connection.release();
-                                            
+        
                                     if (!err) {
                                         userId = result.insertId;
                                         console.log("createUserIfNotExist: created user: "+ userId);
+                                        addPositions(userId,obj.positions,connection);
                                         resolve(userId);
                                         return;
                                     }
                                     else
                                     {
+                                        connection.release();
                                         console.log('Error in connection database');
                                         reject('{"error":"500","errorMsg": '+err+'}');
                                     }
@@ -182,6 +185,7 @@ exports.createUserIfNotExist = function(obj, accessToken) {
                             }
                         else
                         {
+                            connection.release();
                             console.log('Error in connection database');
                             reject('{"error":"500","errorMsg": '+err+'}');
                         }      
@@ -194,6 +198,48 @@ exports.createUserIfNotExist = function(obj, accessToken) {
  
         });
    
+}
+
+function addPositions(userId,positions, connection)
+{
+    if(positions===undefined || positions =="undefined" )
+    {
+        connection.release();
+        return;
+    }
+    positions.values.forEach (function(obj) { 
+        console.log("going to add position "+obj.title); 
+
+        var endDateYear;
+        var endDateMonth;
+        if(obj.endDate === undefined || obj.endDate=='undefined') 
+        {
+            endDateYear =0;
+            endDateMonth=0;
+        }
+        else
+        {
+            endDateYear =obj.endDate.year;
+            endDateMonth=obj.endDate.month;
+        }
+        var sql = "CALL sp_add_position(?,?,?,?,?,?,?,?,?,?,?)";
+        var inserts = [userId, obj.company.industry, obj.company.name, obj.company.size, obj.company.type, obj.isCurrent, obj.startDate.year, obj.startDate.month, endDateYear, endDateMonth,obj.title];
+        var query = mysql.format(sql, inserts);
+
+        console.log("addPositions: going to add position with query: "+ query);
+
+        connection.query(query, function(err, rows) {
+            console.log("addPositions: inside the callback: "+ err+" ... "+rows);
+            if (!err) {
+            }
+            else
+            {
+                console.log("addPositions: err in adding position: "+ err+" ... ");
+            }
+        });
+        
+    });
+    connection.release();
 }
 
 // exports.createUserIfNotExist = function(firstName, headline, id, lastName, accessToken,res) {
