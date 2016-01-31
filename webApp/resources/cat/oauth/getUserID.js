@@ -2,7 +2,7 @@ var exports = module.exports = {};
 var dbConn = require("../../elf/db/dbConn.js");
 
 var urlLinkedin='api.linkedin.com';
-var urlBasicProfie='/v1/people/~?format=json';
+var urlBasicProfie='/v1/people/~:(id,first-name,last-name,picture-urls::(original),email-address,industry,headline,specialties,positions,picture-url,public-profile-url)?format=json';
 
 exports.path='cat/oauth/getUserID';
 
@@ -38,12 +38,12 @@ function getLinkedInBasicProfie(accessToken,res)
             if( parsed.id === undefined)
             {
             	console.log('getBasicProfie going to send back error msg');
-            	 res.status(parseInt(parsed.status)).json({error:parsed.message});
+            	res.status(parseInt(parsed.status)).json({error:parsed.message});
             }
             else
             {
-	            var userId = createUserIfNotExist( parsed.firstName, parsed.headline, parsed.id, parsed.lastName, accessToken, res);
-       		 }
+	            var userId = createUserIfNotExist( parsed, accessToken, res);
+       		}
            
         });
 
@@ -56,9 +56,23 @@ function getLinkedInBasicProfie(accessToken,res)
 	req.end();
 }
 
-function createUserIfNotExist(firstName, headline, id, lastName, accessToken,res)
+function createUserIfNotExist(parsed,accessToken,res)
 {
-	return dbConn.createUserIfNotExist(firstName, headline, id, lastName, accessToken,res);
+	var p1 = dbConn.createUserIfNotExist(parsed,accessToken);
+	return p1.then(
+			function(val)
+			{
+				
+          	  	console.log("getUserID: get user id: "+ val);
+				res.json({user:val});
+            }
+        ).catch(
+        	function(reason) {
+         	   var obj=JSON.parse(reason)
+          	   res.status(obj.error);
+      		  }
+            
+        );
 }
 
 // exports.putHandle=function (req,res) {
