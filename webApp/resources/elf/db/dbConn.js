@@ -98,6 +98,7 @@ exports.createUserIfNotExist = function(obj, accessToken) {
                          userId += rows[0].id;
                         logger.debug("createUserIfNotExist: found user: "+ userId);
                          resolve(userId);
+                         return;
                     }
                     
                     var industry = obj.industry;
