@@ -110,7 +110,7 @@ exports.createUserIfNotExist = function(obj, accessToken) {
                     connection.query(query, function(err, rows2) {
                         logger.debug("createUserIfNotExist: inside the callback: "+ err+" ... "+rows2);
                         if (!err) {
-                                var industryId='';
+                                var industryId=0; // hardcoded to not finding the industry. need to change later
                                  if(rows2.length > 0 ) {
                                      industryId += rows2[0].id;
                                      logger.debug("createUserIfNotExist: found industryId: "+ industryId);
