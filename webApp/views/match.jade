@@ -13,6 +13,9 @@ html
 			div(class="col s12 m4 l4 valign")
 				div(class="center")
 					img(class="responsive-img" src="http://d9hhrg4mnvzow.cloudfront.net/womensilab.com/coffeechat2/1a1a3105-mint-template-speakericon.png")
+					p Tuesday, February 2, 2016
+					p 2-3pm
+					p via Skype
 			div(class="col s12 m4 l4")
 				- var person = match
 				include ./includes/card.jade
@@ -20,10 +23,24 @@ html
 			div(class="row container white-text")
 				div(class="col s12")
 					h4(class="center") More About #{match.name}
-				div(class="col s12 m4")
+				div(class="col s12 m4 l3")
 					img(class="col s12 m12 l12 circle responsive-img" src=match.image)
-				div(class="col s12 m4")
+				div(class="col s12 m4 l3")
 					p=match.quote
+				div(class="col s12 m4 l3")
+					p(class="text-underline") Work Experience:
+					p Product Manager and Business Intelligence, Aereo
+					p Special Operations, Warby Parker 
+					p Marketing, Quirky
+					p Special Customer Operations, Simon Schuster 
+					p Associate, Triage Consulting Group
+				div(class="col s12 m4 l3")
+					p Education:
+					p MBA from NYU Stern Business School
+					p University of California San Diego
+					p
+					p Interests: 
+					p #strategy #marketing #tech #SF #49ers #dogs #consulting #productmanager
 		//- div(class="section white")
 		//- 	div(class="row container")
 		//- 		div(class="col s12 m12 l12")
