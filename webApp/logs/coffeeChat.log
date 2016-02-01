@@ -1,0 +1,11 @@
+[2016-01-31 18:46:25.071] [DEBUG] coffeeChat - Example app listening on port 1337!
+[2016-01-31 18:46:25.084] [DEBUG] coffeeChat - ./resources/cat/oauth/getUserID.js
+[2016-01-31 18:46:25.088] [DEBUG] coffeeChat - cat/oauth/getUserID POST
+[2016-01-31 18:46:25.089] [DEBUG] coffeeChat - ./resources/cat/user/getUserName.js
+[2016-01-31 18:46:25.090] [DEBUG] coffeeChat - cat/user/:userId/getUserName GET
+[2016-01-31 18:46:25.091] [DEBUG] coffeeChat - ./resources/cat/user/currentUser.js
+[2016-01-31 18:46:25.093] [DEBUG] coffeeChat - cat/user/currentUser GET
+[2016-01-31 18:46:25.093] [DEBUG] coffeeChat - ./resources/wild/oauth/auth.js
+[2016-01-31 18:46:25.241] [DEBUG] coffeeChat - wild/oauth/auth GET
+[2016-01-31 18:46:25.242] [DEBUG] coffeeChat - ./resources/wild/oauth/callBack.js
+[2016-01-31 18:46:25.243] [DEBUG] coffeeChat - callback GET
