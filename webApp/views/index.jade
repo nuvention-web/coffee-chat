@@ -1,5 +1,6 @@
 html
 	head
+		link(href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
 		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css")
 		link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css')
 		link(rel="stylesheet" href="/style/index.css")
@@ -36,17 +37,48 @@ html
 					div(class="center")
 						a(class="linked-in-btn" href="/wild/oauth/auth" title="Login with LinkedIn")
 				div(class="col s12 m6 l4")
-					h5 What is expert of the week?
-					div(class="text-grey")
-						div Every week, we will feature an expert in a field that interests you!
+					div(class="row")
+						from(class="col s12 m12 l12")
+							div(class="row")
+								div What would you like you like your intro message to be?
+								div(class="input-field col s12")
+									textarea(class="fill")
+								p(class="tiny-text") One person will be chosen each week, if you are not chose, you are eligible to setup additional coffee chats below.
+								div(class="input-field col s12 m12 l12")
+									button(class="btn btn-flat waves-effect white-text orange darken-3 fill") Request to Meet
+								div(class="input-field col s12 m12 l12")
+									button(class="btn btn-flat waves-effect white-text orange darken-3 fill modal-trigger" href="#modal") Send to a Friend
 		div(class="section grey lighten-3")
 			div(class="row container")
 				h3(class="center header coffee-chat-divider") Schedule a Coffee Chat
-				h6(class="center") Based on your interests, the indsutry leaders below are eager to coffee chat with you. 
+				h6(class="center") Based on your interests, the industry leaders below are eager to coffee chat with you. 
 				h6(class="center") Select the people that you would like to be paired with.
 				each person, index in people
-					div(class="col s12 m6 l3")
+					div(class="col s12 m6 l3" data-schedule-cc)
 						include ./includes/card.jade
+						input(type="checkbox" hidden value="off")
+				from(class="col offset-m3 offset-l3 s12 m6 l12 row")
+					div(class="input-field col s12 m12 l3")
+						button(class="btn btn-flat waves-effect white-text orange darken-3 fill") Request to Meet
+					div(class="input-field col s12 m12 l3")
+						button(class="btn btn-flat waves-effect white-text orange darken-3 fill modal-trigger" href="#modal") Send to a Friend
+		div(id="modal" class="modal")
+			div(class="modal-content")
+				h4 Refer a Friend
+				div(class="input-field col s12 m4 l4")
+					input(type="text" id="first_name")
+					label(for="first_name") First Name
+				div(class="input-field col s12 m4 l4")
+					input(type="text" id="last_name")
+					label(for="last_name") Last Name
+				div(class="input-field col s12 m4 l4")
+					input(type="text" id="email")
+					label(for="email") Email
+				div(class="input-field col s12 m12 l12")
+					textarea(class="fill")
+			div(class="modal-footer")
+				a(href="#!" class="btn-flat modal-close modal-action") Cancel
+				a(href="#!" class="btn-flat modal-close modal-action") Send
 		div(class="parallax-container valign-wrapper")
 			div(class="parallax")
 				img(src="/image/coffee-chat-first.jpg")
