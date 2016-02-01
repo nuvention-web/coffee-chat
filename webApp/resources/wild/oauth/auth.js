@@ -5,8 +5,8 @@ var exports = module.exports = {};
 exports.path='wild/oauth/auth';
 
 exports.linkedInOauth2 = oauth2({
-        clientID: '77yzm37wv3z90u',
-        clientSecret: '3JBCCGjo7FT3YPMB',
+        clientID: '77srm0ix702929',
+        clientSecret: 'LBEUtu8hmsptKm4V',
         site: 'https://www.linkedin.com',
         authorizationPath: '/uas/oauth2/authorization',
         tokenPath: '/uas/oauth2/accessToken'
@@ -15,7 +15,7 @@ exports.linkedInOauth2 = oauth2({
 // Authorization oauth2 URI
 var authorization_uri = exports.linkedInOauth2.authCode.authorizeURL({
     redirect_uri: 'http://localhost:1337/callback',
-    scope: 'r_basicprofile',
+    scope: 'r_basicprofile r_emailaddress',
     state: 'example-state-for-now-but-we-really-need-to-change-this'
 });
 
