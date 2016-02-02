@@ -44,7 +44,7 @@ app.get('/', function(req, res) {
 app.get('/match', function(req, res) {
     res.render('match', {
         user: {
-            "name": "Student",
+            "name": "Stacey",
             "image": "http://d9hhrg4mnvzow.cloudfront.net/womensilab.com/coffeechat2/bb0185b8-sussana-shuman_07107207106x000002.jpg",
             "bio":"",
             "tags": ["tech", "sf", "49ers"],

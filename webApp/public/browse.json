@@ -3,6 +3,7 @@
 	"image": "http://d9hhrg4mnvzow.cloudfront.net/womensilab.com/coffeechat1/d3b566ae-laura-choi_08e05l05k05l01f000.jpg",
 	"bio": "",
 	"job": "Retail Experience Manager",
+	"company":"Warby Parker",
 	"tags": []
 },
 {
@@ -10,13 +11,15 @@
 	"image": "https://media.licdn.com/media/p/1/005/044/3ff/2dedc3f.jpg",
 	"bio": "",
 	"job": "Integrated Marketing Consultant",
+	"company":"PBS",
 	"tags": []
 },
 {
 	"name": "Suzanne Edman",
 	"image": "http://d9hhrg4mnvzow.cloudfront.net/womensilab.com/coffeechat1/42dc6a8a-suzanne-edman_05l05l05k05l000000.jpg",
 	"bio": "",
-	"job": "Consultant",
+	"job": "Directory of Medical Operations",
+	"company":"HealthTap",
 	"tags": []
 },
 {
@@ -24,5 +27,6 @@
 	"image": "http://d9hhrg4mnvzow.cloudfront.net/womensilab.com/coffeechat1/9a57748d-minh-truong_05l05l05l05l000000.jpg",
 	"bio": "",
 	"job": "Data Visualization",
+	"company":"Accenture",
 	"tags": []
 }]

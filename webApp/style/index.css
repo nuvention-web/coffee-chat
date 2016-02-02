@@ -59,6 +59,14 @@ textarea {
   background: #ff7050 !important;
 }
 
+.coffee-chat-grey {
+  color: #565a56;
+}
+
+.coffee-chat-grey-background {
+  background: #FAFAFA;
+}
+
 .coffee-chat-divider:before, .coffee-chat-divider:after {
   content: "";
   display: inline-block;

@@ -5,13 +5,14 @@ div(class="card z-depth-1")
 	div(class="card-content")
 		p(class="truncate")=person.job
 			i(class="material-icons right")=more_vert
+		p=person.company
 	div(class="card-reveal")
 		span(class="card-title")=person.name
 			i(class="material-icons right")=close
 		p=person.job
 		//- p=person.bio
-		div
-			each tag in person.tags
-				div(class="chip") ##{tag}
+		//- div
+			//- each tag in person.tags
+				//- div(class="chip") ##{tag}
 	//- div(class="card-action")
 		a(href="#") Look at #{person.name}'s LinkedIn
