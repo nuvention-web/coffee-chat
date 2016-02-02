@@ -4,7 +4,7 @@
 	"bio": "",
 	"job": "Retail Experience Manager",
 	"company":"Warby Parker",
-	"tags": []
+	"tags": ["retail", "strategy", "marketing", "fashion"]
 },
 {
 	"name": "Amy Tam",
@@ -12,7 +12,7 @@
 	"bio": "",
 	"job": "Integrated Marketing Consultant",
 	"company":"PBS",
-	"tags": []
+	"tags": ["media", "communications", "consulting", "film"]
 },
 {
 	"name": "Suzanne Edman",
@@ -20,7 +20,7 @@
 	"bio": "",
 	"job": "Directory of Medical Operations",
 	"company":"HealthTap",
-	"tags": []
+	"tags": ["healthcare", "tech", "management", "music", "cooking"]
 },
 {
 	"name": "Minh Truong",
@@ -28,5 +28,5 @@
 	"bio": "",
 	"job": "Data Visualization",
 	"company":"Accenture",
-	"tags": []
+	"tags": ["tech", "consulting", "machine learning", "SF", "Warriors", "Giants"]
 }]
