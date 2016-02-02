@@ -11,4 +11,4 @@ div(class="card z-depth-1")
 		each tag in person.tags
 			div(class="chip") ##{tag}
 		p
-		a(href="https://www.linkedin.com/") Look at #{person.name}'s LinkedIn
+		a(href=person.linkedin) Look at #{person.name}'s LinkedIn

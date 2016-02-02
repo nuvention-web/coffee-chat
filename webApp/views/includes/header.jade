@@ -7,5 +7,6 @@ nav(class="white z-depth-0")
 				a(class="grey-text text-darken-3") Team
 			//- li
 				a(class="grey-text text-darken-3") Contact
-			li
-				a(class="grey-text text-darken-3") Login
+			unless !loggedin
+				li
+					a(class="grey-text text-darken-3") Hi Stacey

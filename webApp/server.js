@@ -17,6 +17,8 @@ app.use(bodyParser.urlencoded({
     extended: true
 })); // for parsing application/x-www-form-urlencoded
 
+loggedin = false;
+
 // Homepage
 app.get('/', function(req, res) {
     fs.readFile('./public/browse.json', function(err, data) {
@@ -27,6 +29,7 @@ app.get('/', function(req, res) {
         var people = JSON.parse(data);
 
         res.render('index', {
+            loggedin: loggedin,
             people: people,
             person: {
                 "name": "Lisa Eng",
@@ -50,6 +53,7 @@ app.get('/schedule', function(req, res) {
 		var people = JSON.parse(data);
 		
 		res.render('schedule', {
+            loggedin: loggedin,
 			people: people,
 			user: {
 			   "name": "Stacey",
@@ -64,6 +68,7 @@ app.get('/schedule', function(req, res) {
 
 app.get('/match', function(req, res) {
     res.render('match', {
+        loggedin: loggedin,
         user: {
             "name": "Stacey",
             "image": "http://d9hhrg4mnvzow.cloudfront.net/womensilab.com/coffeechat2/bb0185b8-sussana-shuman_07107207106x000002.jpg",

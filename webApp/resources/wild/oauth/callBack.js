@@ -12,6 +12,7 @@ exports.getHandle=function (req,res) {
     console.log('/wild/oauth/callback');
     console.log(code);
     console.log(state);
+    loggedin = true;
 
     auth.linkedInOauth2.authCode.getToken({
             code: code,
