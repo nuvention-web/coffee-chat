@@ -9,3 +9,269 @@
 [2016-01-31 18:46:25.241] [DEBUG] coffeeChat - wild/oauth/auth GET
 [2016-01-31 18:46:25.242] [DEBUG] coffeeChat - ./resources/wild/oauth/callBack.js
 [2016-01-31 18:46:25.243] [DEBUG] coffeeChat - callback GET
+[2016-02-01 14:39:40.569] [DEBUG] coffeeChat - Example app listening on port 1337!
+[2016-02-01 14:39:40.575] [DEBUG] coffeeChat - ./resources/cat/oauth/getUserID.js
+[2016-02-01 14:39:40.579] [DEBUG] coffeeChat - cat/oauth/getUserID POST
+[2016-02-01 14:39:40.579] [DEBUG] coffeeChat - ./resources/cat/user/getUserName.js
+[2016-02-01 14:39:40.581] [DEBUG] coffeeChat - cat/user/:userId/getUserName GET
+[2016-02-01 14:39:40.582] [DEBUG] coffeeChat - ./resources/cat/user/currentUser.js
+[2016-02-01 14:39:40.583] [DEBUG] coffeeChat - cat/user/currentUser GET
+[2016-02-01 14:39:40.583] [DEBUG] coffeeChat - ./resources/wild/oauth/auth.js
+[2016-02-01 14:39:40.726] [DEBUG] coffeeChat - wild/oauth/auth GET
+[2016-02-01 14:39:40.727] [DEBUG] coffeeChat - ./resources/wild/oauth/callBack.js
+[2016-02-01 14:39:40.729] [DEBUG] coffeeChat - callback GET
+[2016-02-01 14:39:50.600] [DEBUG] coffeeChat - myLogger - new request: /
+[2016-02-01 14:39:50.602] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 14:39:50.602] [DEBUG] coffeeChat - authenticationFailed : path matched 
+[2016-02-01 14:39:50.765] [DEBUG] coffeeChat - myLogger - new request: /favicon.ico
+[2016-02-01 14:39:50.766] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 14:39:51.811] [DEBUG] coffeeChat - myLogger - new request: /wild/oauth/auth
+[2016-02-01 14:39:51.812] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 14:39:51.812] [DEBUG] coffeeChat - authenticationFailed : path matched 
+[2016-02-01 14:40:51.445] [DEBUG] coffeeChat - myLogger - new request: /
+[2016-02-01 14:40:51.445] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 14:40:51.446] [DEBUG] coffeeChat - authenticationFailed : path matched 
+[2016-02-01 14:40:52.458] [DEBUG] coffeeChat - myLogger - new request: /wild/oauth/auth
+[2016-02-01 14:40:52.458] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 14:40:52.458] [DEBUG] coffeeChat - authenticationFailed : path matched 
+[2016-02-01 14:41:21.022] [DEBUG] coffeeChat - myLogger - new request: /wild/oauth/auth
+[2016-02-01 14:41:21.024] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 14:41:21.025] [DEBUG] coffeeChat - authenticationFailed : path matched 
+[2016-02-01 14:41:23.854] [DEBUG] coffeeChat - myLogger - new request: /callback
+[2016-02-01 14:41:23.857] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 14:41:23.857] [DEBUG] coffeeChat - authenticationFailed : path matched 
+[2016-02-01 14:41:24.073] [DEBUG] coffeeChat - myLogger - new request: /cat/oauth/getUserID
+[2016-02-01 14:41:24.073] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 14:41:24.074] [DEBUG] coffeeChat - authenticationFailed : path matched 
+[2016-02-01 14:41:24.110] [DEBUG] coffeeChat - oAuth/getUserId: userID: request received
+[2016-02-01 14:41:24.110] [DEBUG] coffeeChat - oAuth/getUserId: accessToken: AQVgWH7BPkUxF_X5nmul-0adYWE4P4gNbRj2XmWurIdigqr-BIr7iMmxvtf-fX8oWft02sNXq9jl4ZBqWoVztqlTg8lVNEYF76J1TEwcl6RUujR131EZIntflFmGo9zojrB3Ur_g5-kx4GdDeNoBZPjtFZpclv0JgO4TOx4nyWeBAhDH7wc
+[2016-02-01 14:41:24.571] [DEBUG] coffeeChat - getBasicProfie: {
+  "emailAddress": "lumukai@gmail.com",
+  "firstName": "Mukai",
+  "headline": "MEM Candidate at Northwestern University",
+  "id": "uJP92x4Crv",
+  "industry": "Computer Software",
+  "lastName": "LU",
+  "pictureUrl": "https://media.licdn.com/mpr/mprx/0_-GmS3nNGpOdT0iINZPV_E39G4W8T0CwW-64SXCCigpEhstZXUPnSW1sGVxdpp8wZN6VDoKJCA7s8yQKqUlwldCNmN7s3yQpkUlwmG_T_xm7SnKF4chjhCc7tqV8AzQwv--fT5lIc9wL",
+  "pictureUrls": {
+    "_total": 1,
+    "values": ["https://media.licdn.com/mpr/mprx/0_1Ihy_SgAFW2lnTCtKGjOzcyt9zgBn3CgLVp0-1TlXeSAFDfYtTjstMyccd2jA_CAnMj0K4jcX8TANrONt8l1NngAP8TlNrOjA8lY3STl6srZNb7NAXTxIwbHTO"]
+  },
+  "positions": {"_total": 0},
+  "publicProfileUrl": "https://www.linkedin.com/in/mukailu"
+}
+[2016-02-01 14:41:24.572] [DEBUG] coffeeChat - getBasicProfie errorcode: undefined
+[2016-02-01 14:41:24.654] [DEBUG] coffeeChat - connected as id 2255787
+[2016-02-01 14:41:24.683] [DEBUG] coffeeChat - createUserIfNotExist: found user: 91
+[2016-02-01 14:41:24.684] [DEBUG] coffeeChat - getUserID: get user id: 91
+[2016-02-01 14:41:24.695] [DEBUG] coffeeChat - myLogger - new request: /
+[2016-02-01 14:41:24.695] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 14:42:10.119] [DEBUG] coffeeChat - Example app listening on port 1337!
+[2016-02-01 14:42:10.128] [DEBUG] coffeeChat - ./resources/cat/oauth/getUserID.js
+[2016-02-01 14:42:10.131] [DEBUG] coffeeChat - cat/oauth/getUserID POST
+[2016-02-01 14:42:10.132] [DEBUG] coffeeChat - ./resources/cat/user/getUserName.js
+[2016-02-01 14:42:10.134] [DEBUG] coffeeChat - cat/user/:userId/getUserName GET
+[2016-02-01 14:42:10.135] [DEBUG] coffeeChat - ./resources/cat/user/currentUser.js
+[2016-02-01 14:42:10.136] [DEBUG] coffeeChat - cat/user/currentUser GET
+[2016-02-01 14:42:10.136] [DEBUG] coffeeChat - ./resources/wild/oauth/auth.js
+[2016-02-01 14:42:10.280] [DEBUG] coffeeChat - wild/oauth/auth GET
+[2016-02-01 14:42:10.281] [DEBUG] coffeeChat - ./resources/wild/oauth/callBack.js
+[2016-02-01 14:42:10.283] [DEBUG] coffeeChat - callback GET
+[2016-02-01 14:42:12.655] [DEBUG] coffeeChat - myLogger - new request: /
+[2016-02-01 14:42:12.656] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 14:42:13.155] [DEBUG] coffeeChat - connected as id 2256450
+[2016-02-01 14:42:13.187] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 14:42:14.245] [DEBUG] coffeeChat - myLogger - new request: /wild/oauth/auth
+[2016-02-01 14:42:14.245] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 14:42:14.266] [DEBUG] coffeeChat - connected as id 2256450
+[2016-02-01 14:42:14.291] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 14:42:16.509] [DEBUG] coffeeChat - myLogger - new request: /callback
+[2016-02-01 14:42:16.510] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 14:42:16.530] [DEBUG] coffeeChat - connected as id 2256450
+[2016-02-01 14:42:16.552] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 14:42:16.794] [DEBUG] coffeeChat - myLogger - new request: /cat/oauth/getUserID
+[2016-02-01 14:42:16.794] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 14:42:16.794] [DEBUG] coffeeChat - authenticationFailed : path matched 
+[2016-02-01 14:42:16.829] [DEBUG] coffeeChat - oAuth/getUserId: userID: request received
+[2016-02-01 14:42:16.829] [DEBUG] coffeeChat - oAuth/getUserId: accessToken: AQXYQDpdix64DMzDVTe7wOIxcie0oN853oIJxf17truDeUiDC9edkYksQ0PNwBVWkE5T0neZ_rat4jCnrLvHSh5yqQ2VfF3fwWLu8_PIw5gjU5zp4Kpuifs6ltRL_5VC2JkvFMMiZOB-5k8GU5l3VAUwKOypZhmdHnv10S1QPyZ5ZeY07lg
+[2016-02-01 14:42:17.071] [DEBUG] coffeeChat - getBasicProfie: {
+  "emailAddress": "lumukai@gmail.com",
+  "firstName": "Mukai",
+  "headline": "MEM Candidate at Northwestern University",
+  "id": "uJP92x4Crv",
+  "industry": "Computer Software",
+  "lastName": "LU",
+  "pictureUrl": "https://media.licdn.com/mpr/mprx/0_-GmS3nNGpOdT0iINZPV_E39G4W8T0CwW-64SXCCigpEhstZXUPnSW1sGVxdpp8wZN6VDoKJCA7s8yQKqUlwldCNmN7s3yQpkUlwmG_T_xm7SnKF4chjhCc7tqV8AzQwv--fT5lIc9wL",
+  "pictureUrls": {
+    "_total": 1,
+    "values": ["https://media.licdn.com/mpr/mprx/0_1Ihy_SgAFW2lnTCtKGjOzcyt9zgBn3CgLVp0-1TlXeSAFDfYtTjstMyccd2jA_CAnMj0K4jcX8TANrONt8l1NngAP8TlNrOjA8lY3STl6srZNb7NAXTxIwbHTO"]
+  },
+  "positions": {"_total": 0},
+  "publicProfileUrl": "https://www.linkedin.com/in/mukailu"
+}
+[2016-02-01 14:42:17.072] [DEBUG] coffeeChat - getBasicProfie errorcode: undefined
+[2016-02-01 14:42:17.142] [DEBUG] coffeeChat - connected as id 2256506
+[2016-02-01 14:42:17.166] [DEBUG] coffeeChat - createUserIfNotExist: found user: 91
+[2016-02-01 14:42:17.167] [DEBUG] coffeeChat - getUserID: get user id: 91
+[2016-02-01 14:42:17.179] [DEBUG] coffeeChat - myLogger - new request: /
+[2016-02-01 14:42:17.179] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 14:42:17.199] [DEBUG] coffeeChat - connected as id 2256450
+[2016-02-01 14:42:17.223] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 14:42:18.349] [DEBUG] coffeeChat - myLogger - new request: /wild/oauth/auth
+[2016-02-01 14:42:18.349] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 14:42:18.369] [DEBUG] coffeeChat - connected as id 2256450
+[2016-02-01 14:42:18.390] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 14:42:20.707] [DEBUG] coffeeChat - myLogger - new request: /callback
+[2016-02-01 14:42:20.708] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 14:42:20.729] [DEBUG] coffeeChat - connected as id 2256450
+[2016-02-01 14:42:20.760] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 14:42:20.883] [DEBUG] coffeeChat - myLogger - new request: /cat/oauth/getUserID
+[2016-02-01 14:42:20.883] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 14:42:20.883] [DEBUG] coffeeChat - authenticationFailed : path matched 
+[2016-02-01 14:42:20.885] [DEBUG] coffeeChat - oAuth/getUserId: userID: request received
+[2016-02-01 14:42:20.885] [DEBUG] coffeeChat - oAuth/getUserId: accessToken: AQVFse94-telZE9nDL-VZQN9tCisHqsGOkESjYlShCyjTv300HTv2JIzm-JWQCX45IY61H7BV7kCtJOfmugUX6553HB1IZEvLuBoxuOAutwb_U6I1kb9hALt5fLcAMDYz-wjjexmFCBJ385vt5PVp1vZR8SSg0EZn4jNQlwIMzKfdhsC3o4
+[2016-02-01 14:42:21.096] [DEBUG] coffeeChat - getBasicProfie: {
+  "emailAddress": "lumukai@gmail.com",
+  "firstName": "Mukai",
+  "headline": "MEM Candidate at Northwestern University",
+  "id": "uJP92x4Crv",
+  "industry": "Computer Software",
+  "lastName": "LU",
+  "pictureUrl": "https://media.licdn.com/mpr/mprx/0_-GmS3nNGpOdT0iINZPV_E39G4W8T0CwW-64SXCCigpEhstZXUPnSW1sGVxdpp8wZN6VDoKJCA7s8yQKqUlwldCNmN7s3yQpkUlwmG_T_xm7SnKF4chjhCc7tqV8AzQwv--fT5lIc9wL",
+  "pictureUrls": {
+    "_total": 1,
+    "values": ["https://media.licdn.com/mpr/mprx/0_1Ihy_SgAFW2lnTCtKGjOzcyt9zgBn3CgLVp0-1TlXeSAFDfYtTjstMyccd2jA_CAnMj0K4jcX8TANrONt8l1NngAP8TlNrOjA8lY3STl6srZNb7NAXTxIwbHTO"]
+  },
+  "positions": {"_total": 0},
+  "publicProfileUrl": "https://www.linkedin.com/in/mukailu"
+}
+[2016-02-01 14:42:21.097] [DEBUG] coffeeChat - getBasicProfie errorcode: undefined
+[2016-02-01 14:42:21.158] [DEBUG] coffeeChat - connected as id 2256570
+[2016-02-01 14:42:21.180] [DEBUG] coffeeChat - createUserIfNotExist: found user: 91
+[2016-02-01 14:42:21.181] [DEBUG] coffeeChat - getUserID: get user id: 91
+[2016-02-01 14:42:21.187] [DEBUG] coffeeChat - myLogger - new request: /
+[2016-02-01 14:42:21.187] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 14:42:21.208] [DEBUG] coffeeChat - connected as id 2256450
+[2016-02-01 14:42:21.229] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 15:20:48.640] [DEBUG] coffeeChat - myLogger - new request: /cat/user/91/getUserName
+[2016-02-01 15:20:48.643] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 15:20:53.004] [DEBUG] coffeeChat - myLogger - new request: /wild/oauth/auth
+[2016-02-01 15:20:53.005] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 15:20:53.006] [DEBUG] coffeeChat - authenticationFailed : path matched 
+[2016-02-01 15:20:55.382] [DEBUG] coffeeChat - myLogger - new request: /callback
+[2016-02-01 15:20:55.384] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 15:20:55.386] [DEBUG] coffeeChat - authenticationFailed : path matched 
+[2016-02-01 15:20:55.530] [DEBUG] coffeeChat - myLogger - new request: /cat/oauth/getUserID
+[2016-02-01 15:20:55.530] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 15:20:55.530] [DEBUG] coffeeChat - authenticationFailed : path matched 
+[2016-02-01 15:20:55.532] [DEBUG] coffeeChat - oAuth/getUserId: userID: request received
+[2016-02-01 15:20:55.532] [DEBUG] coffeeChat - oAuth/getUserId: accessToken: AQUN9gAqY_EUgjIaZQYblheqLfGg1IbC4I50j4QIbHch-_B9lwCH-V9iOIZhZ4NWMd18F9gWaBi-K5tICDaiAbO2p_nK5uG1LHiVhbUXtYGCxP-W6NLqufQz5ZQ-wTqT0F8gv3NeYYkw_lXaP8nYQ1hbbScvgIPk3lcs7JDXLmR_IXanttY
+[2016-02-01 15:20:55.748] [DEBUG] coffeeChat - getBasicProfie: {
+  "emailAddress": "lumukai@gmail.com",
+  "firstName": "Mukai",
+  "headline": "MEM Candidate at Northwestern University",
+  "id": "uJP92x4Crv",
+  "industry": "Computer Software",
+  "lastName": "LU",
+  "pictureUrl": "https://media.licdn.com/mpr/mprx/0_-GmS3nNGpOdT0iINZPV_E39G4W8T0CwW-64SXCCigpEhstZXUPnSW1sGVxdpp8wZN6VDoKJCA7s8yQKqUlwldCNmN7s3yQpkUlwmG_T_xm7SnKF4chjhCc7tqV8AzQwv--fT5lIc9wL",
+  "pictureUrls": {
+    "_total": 1,
+    "values": ["https://media.licdn.com/mpr/mprx/0_1Ihy_SgAFW2lnTCtKGjOzcyt9zgBn3CgLVp0-1TlXeSAFDfYtTjstMyccd2jA_CAnMj0K4jcX8TANrONt8l1NngAP8TlNrOjA8lY3STl6srZNb7NAXTxIwbHTO"]
+  },
+  "positions": {"_total": 0},
+  "publicProfileUrl": "https://www.linkedin.com/in/mukailu"
+}
+[2016-02-01 15:20:55.749] [DEBUG] coffeeChat - getBasicProfie errorcode: undefined
+[2016-02-01 15:20:55.818] [DEBUG] coffeeChat - connected as id 2295178
+[2016-02-01 15:20:55.857] [DEBUG] coffeeChat - createUserIfNotExist: found user: 91
+[2016-02-01 15:20:55.860] [DEBUG] coffeeChat - getUserID: get user id: 91
+[2016-02-01 15:20:55.866] [DEBUG] coffeeChat - myLogger - new request: /
+[2016-02-01 15:20:55.866] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 15:21:05.947] [DEBUG] coffeeChat - connected as id 2295414
+[2016-02-01 15:21:05.972] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 15:21:13.432] [DEBUG] coffeeChat - myLogger - new request: /cat/user/91/getUserName
+[2016-02-01 15:21:13.433] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 15:21:13.454] [DEBUG] coffeeChat - connected as id 2295414
+[2016-02-01 15:21:13.476] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 15:21:13.539] [DEBUG] coffeeChat - connected as id 2295575
+[2016-02-01 15:21:13.560] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 15:21:50.785] [DEBUG] coffeeChat - myLogger - new request: /cat/user/131/getUserName
+[2016-02-01 15:21:50.785] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 15:21:50.805] [DEBUG] coffeeChat - connected as id 2295414
+[2016-02-01 15:21:50.825] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 15:21:50.846] [DEBUG] coffeeChat - connected as id 2295575
+[2016-02-01 15:21:50.849] [DEBUG] coffeeChat - myLogger - new request: /cat/user/131/getUserName
+[2016-02-01 15:21:50.849] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 15:21:50.868] [DEBUG] coffeeChat - dbConn: found user: 131
+[2016-02-01 15:21:50.870] [DEBUG] coffeeChat - connected as id 2295414
+[2016-02-01 15:21:50.903] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 15:21:50.927] [DEBUG] coffeeChat - connected as id 2295575
+[2016-02-01 15:21:50.949] [DEBUG] coffeeChat - dbConn: found user: 131
+[2016-02-01 15:42:50.597] [DEBUG] coffeeChat - Example app listening on port 1337!
+[2016-02-01 15:42:50.608] [DEBUG] coffeeChat - ./resources/cat/oauth/getUserID.js
+[2016-02-01 15:42:50.612] [DEBUG] coffeeChat - cat/oauth/getUserID POST
+[2016-02-01 15:42:50.612] [DEBUG] coffeeChat - ./resources/cat/user/getUserName.js
+[2016-02-01 15:42:50.613] [DEBUG] coffeeChat - cat/user/:userId/getUserName GET
+[2016-02-01 15:42:50.614] [DEBUG] coffeeChat - ./resources/cat/user/currentUser.js
+[2016-02-01 15:42:50.615] [DEBUG] coffeeChat - cat/user/currentUser GET
+[2016-02-01 15:42:50.615] [DEBUG] coffeeChat - ./resources/wild/oauth/auth.js
+[2016-02-01 15:42:50.741] [DEBUG] coffeeChat - wild/oauth/auth GET
+[2016-02-01 15:42:50.742] [DEBUG] coffeeChat - ./resources/wild/oauth/callBack.js
+[2016-02-01 15:42:50.743] [DEBUG] coffeeChat - callback GET
+[2016-02-01 15:43:11.989] [DEBUG] coffeeChat - myLogger - new request: /cat/user/131/getUserName
+[2016-02-01 15:43:11.992] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 15:43:16.432] [DEBUG] coffeeChat - myLogger - new request: /wild/oauth/auth
+[2016-02-01 15:43:16.434] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 15:43:16.434] [DEBUG] coffeeChat - authenticationFailed : path matched 
+[2016-02-01 15:43:18.531] [DEBUG] coffeeChat - myLogger - new request: /callback
+[2016-02-01 15:43:18.533] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 15:43:18.534] [DEBUG] coffeeChat - authenticationFailed : path matched 
+[2016-02-01 15:43:18.769] [DEBUG] coffeeChat - myLogger - new request: /cat/oauth/getUserID
+[2016-02-01 15:43:18.769] [DEBUG] coffeeChat - myLogger - new request: undefined
+[2016-02-01 15:43:18.769] [DEBUG] coffeeChat - authenticationFailed : path matched 
+[2016-02-01 15:43:18.813] [DEBUG] coffeeChat - oAuth/getUserId: userID: request received
+[2016-02-01 15:43:18.814] [DEBUG] coffeeChat - oAuth/getUserId: accessToken: AQWzTzB7nsVnSKFUP1etWbUz4iS6wMlnOG_MHUxCjcLHoAfFcLD39HEvZXhEhLSBZXcSr8vy8kCpeWSBGH2fAJZJe5c_MjfPCiWQZCa8n0p2JxILhxXiRKJpkVFKFz8vXI2V3xDwDtAklDeVEejGo0xmFZ56kSOB34RxnyzQfkUZq5EttAU
+[2016-02-01 15:43:19.016] [DEBUG] coffeeChat - getBasicProfie: {
+  "emailAddress": "lumukai@gmail.com",
+  "firstName": "Mukai",
+  "headline": "MEM Candidate at Northwestern University",
+  "id": "uJP92x4Crv",
+  "industry": "Computer Software",
+  "lastName": "LU",
+  "pictureUrl": "https://media.licdn.com/mpr/mprx/0_-GmS3nNGpOdT0iINZPV_E39G4W8T0CwW-64SXCCigpEhstZXUPnSW1sGVxdpp8wZN6VDoKJCA7s8yQKqUlwldCNmN7s3yQpkUlwmG_T_xm7SnKF4chjhCc7tqV8AzQwv--fT5lIc9wL",
+  "pictureUrls": {
+    "_total": 1,
+    "values": ["https://media.licdn.com/mpr/mprx/0_1Ihy_SgAFW2lnTCtKGjOzcyt9zgBn3CgLVp0-1TlXeSAFDfYtTjstMyccd2jA_CAnMj0K4jcX8TANrONt8l1NngAP8TlNrOjA8lY3STl6srZNb7NAXTxIwbHTO"]
+  },
+  "positions": {"_total": 0},
+  "publicProfileUrl": "https://www.linkedin.com/in/mukailu"
+}
+[2016-02-01 15:43:19.017] [DEBUG] coffeeChat - getBasicProfie errorcode: undefined
+[2016-02-01 15:43:19.097] [DEBUG] coffeeChat - connected as id 2318739
+[2016-02-01 15:43:19.126] [DEBUG] coffeeChat - createUserIfNotExist: found user: 91
+[2016-02-01 15:43:19.128] [DEBUG] coffeeChat - getUserID: get user id: 91
+[2016-02-01 15:43:19.149] [DEBUG] coffeeChat - myLogger - new request: /
+[2016-02-01 15:43:19.150] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 15:43:19.212] [DEBUG] coffeeChat - connected as id 2318741
+[2016-02-01 15:43:19.236] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 15:43:23.872] [DEBUG] coffeeChat - myLogger - new request: /cat/user/131/getUserName
+[2016-02-01 15:43:23.872] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 15:43:23.892] [DEBUG] coffeeChat - connected as id 2318741
+[2016-02-01 15:43:23.915] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 15:43:23.979] [DEBUG] coffeeChat - connected as id 2318827
+[2016-02-01 15:43:23.979] [DEBUG] coffeeChat - getUserInfo: going to query user info: SELECT u.id, u.firstName, u.lastName, u.email, u.headline, u.profilePicO, u.linkedInProfile, i.`name` as industry From user_basic as u LEFT JOIN industry_desc as i on u.industry = i.id WHERE u.id ='131'
+[2016-02-01 15:43:24.001] [DEBUG] coffeeChat - dbConn: found user: 131
+[2016-02-01 15:44:29.735] [DEBUG] coffeeChat - myLogger - new request: /cat/user/451/getUserName
+[2016-02-01 15:44:29.736] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 15:44:29.756] [DEBUG] coffeeChat - connected as id 2318741
+[2016-02-01 15:44:29.778] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 15:44:29.800] [DEBUG] coffeeChat - connected as id 2318827
+[2016-02-01 15:44:29.803] [DEBUG] coffeeChat - getUserInfo: going to query user info: SELECT u.id, u.firstName, u.lastName, u.email, u.headline, u.profilePicO, u.linkedInProfile, i.`name` as industry From user_basic as u LEFT JOIN industry_desc as i on u.industry = i.id WHERE u.id ='451'
+[2016-02-01 15:44:29.825] [DEBUG] coffeeChat - dbConn: found user: 451
+[2016-02-01 15:44:51.834] [DEBUG] coffeeChat - myLogger - new request: /cat/user/371/getUserName
+[2016-02-01 15:44:51.834] [DEBUG] coffeeChat - myLogger - new request: 91
+[2016-02-01 15:44:51.855] [DEBUG] coffeeChat - connected as id 2318741
+[2016-02-01 15:44:51.875] [DEBUG] coffeeChat - dbConn: found user: 91
+[2016-02-01 15:44:51.901] [DEBUG] coffeeChat - connected as id 2318827
+[2016-02-01 15:44:51.902] [DEBUG] coffeeChat - getUserInfo: going to query user info: SELECT u.id, u.firstName, u.lastName, u.email, u.headline, u.profilePicO, u.linkedInProfile, i.`name` as industry From user_basic as u LEFT JOIN industry_desc as i on u.industry = i.id WHERE u.id ='371'
+[2016-02-01 15:44:51.927] [DEBUG] coffeeChat - dbConn: found user: 371

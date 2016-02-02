@@ -69,7 +69,7 @@ function createOAuthUser(token,res)
             
         });
 
-        req.on('error', function(e) {
+        response.on('error', function(e) {
             console.log('server.js: createOAuthUser met error '+ e);
             res.redirect('/');
         });

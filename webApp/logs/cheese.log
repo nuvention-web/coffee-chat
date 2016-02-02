@@ -1,0 +1,22 @@
+[2016-01-31 15:58:09.215] [DEBUG] cheese - Example app listening on port 1337!
+[2016-01-31 15:58:09.223] [DEBUG] cheese - ./resources/cat/oauth/getUserID.js
+[2016-01-31 15:58:09.227] [DEBUG] cheese - cat/oauth/getUserID POST
+[2016-01-31 15:58:09.227] [DEBUG] cheese - ./resources/cat/user/getUserName.js
+[2016-01-31 15:58:09.229] [DEBUG] cheese - cat/user/:userId/getUserName GET
+[2016-01-31 15:58:09.229] [DEBUG] cheese - ./resources/cat/user/currentUser.js
+[2016-01-31 15:58:09.231] [DEBUG] cheese - cat/user/currentUser GET
+[2016-01-31 15:58:09.231] [DEBUG] cheese - ./resources/wild/oauth/auth.js
+[2016-01-31 15:58:09.373] [DEBUG] cheese - wild/oauth/auth GET
+[2016-01-31 15:58:09.374] [DEBUG] cheese - ./resources/wild/oauth/callBack.js
+[2016-01-31 15:58:09.376] [DEBUG] cheese - callback GET
+[2016-01-31 15:59:53.664] [DEBUG] coffeeChat - Example app listening on port 1337!
+[2016-01-31 15:59:53.672] [DEBUG] coffeeChat - ./resources/cat/oauth/getUserID.js
+[2016-01-31 15:59:53.675] [DEBUG] coffeeChat - cat/oauth/getUserID POST
+[2016-01-31 15:59:53.676] [DEBUG] coffeeChat - ./resources/cat/user/getUserName.js
+[2016-01-31 15:59:53.678] [DEBUG] coffeeChat - cat/user/:userId/getUserName GET
+[2016-01-31 15:59:53.679] [DEBUG] coffeeChat - ./resources/cat/user/currentUser.js
+[2016-01-31 15:59:53.680] [DEBUG] coffeeChat - cat/user/currentUser GET
+[2016-01-31 15:59:53.680] [DEBUG] coffeeChat - ./resources/wild/oauth/auth.js
+[2016-01-31 15:59:53.809] [DEBUG] coffeeChat - wild/oauth/auth GET
+[2016-01-31 15:59:53.810] [DEBUG] coffeeChat - ./resources/wild/oauth/callBack.js
+[2016-01-31 15:59:53.812] [DEBUG] coffeeChat - callback GET
