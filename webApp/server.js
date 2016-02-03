@@ -2,86 +2,151 @@
 var express = require('express'),
     app = express(),
     request = require('request'),
-    // oauth2 = require('simple-oauth2'),
-    // path = require('path');
-    bodyParser = require('body-parser');
-    dbConn = require("./Resources/elf/db/dbConn.js");
-    logger=require("./logger.js").getLogger();
+    bodyParser = require('body-parser'),
+    dbConn = require("./Resources/elf/db/dbConn.js"),
+    logger = require("./logger.js").getLogger(),
+    port = process.env.PORT || 1337,
+    cookieParser = require('cookie-parser'),
+    path = require('path'),
+    bodyParser = require('body-parser'),
+    fs = require('fs'),
+    myLogger = function(req, res, next) {
+        logger.debug('myLogger - new request: ' + req.path);
+        next();
+    },
+    myAutheticator = function(req, res, next) {
+        logger.debug('myLogger - new request: ' + req.cookies.userID);
+        if (undefined === req.cookies.userID || "undefined" == req.cookies.userID) {
+            authenticationFailed(req, res, next);
+        } else {
+            var userID = req.cookies.userID;
+            var p1 = dbConn.getUserName(userID);
+            return p1.then(
+                function(val) {
+                    var obj = JSON.parse(val);
+                    console.log("serverjs: validated user: " + obj.id);
+                    req.loginUserID = obj.id;
+                    next();
+                    return;
+                }
+            ).catch(
+                function(reason) {
+                    authenticationFailed(req, res, next);
+                }
+            );
+        }
+
+    },
+    authenticationFailed = function(req, res, next) {
+        var path = req.path;
+        if (path == "/" || path == "/callback" || path == "/wild/oauth/auth" || path == "/cat/oauth/getUserID") {
+            logger.debug("authenticationFailed : path matched ");
+            next();
+            return;
+        }
+        console.log("authenticationFailed -- ");
+        if (path.slice(1, 5) == 'wild') {
+            logger.debug("authenticationFailed : redirect request to home page ");
+            res.redirect('/');
+        }
+
+        // TDOO: return something other than 401...
+        res.status(401);
+        res.end();
+    },
+    interalServerError = function(err, req, res, next) {
+        logger.error(err.stack);
+        res.status(500).send('Something broke!');
+    },
+    exitHandler = function(options, err) {
+        if (options.cleanup) {
+            dbConn.clearup();
+        }
+        if (err) console.log(err.stack);
+        if (options.exit) process.exit();
+    };
 
 // App settings
-
-var port = process.env.PORT || 1337;
-
-var myLogger = function (req, res, next) {
-  logger.debug('myLogger - new request: '+req.path);
-  next();
-};
-var cookieParser = require('cookie-parser');
-
-var myAutheticator = function (req, res, next) {
-    logger.debug('myLogger - new request: '+req.cookies.userID);
-    if(undefined === req.cookies.userID || "undefined" == req.cookies.userID   )
-    {
-        authenticationFailed(req, res, next);
-    }
-    else
-    {
-        var userID= req.cookies.userID;
-        var p1 = dbConn.getUserName(userID);
-        return p1.then(
-            function(val)
-            {
-               var obj=JSON.parse(val);
-               console.log("serverjs: validated user: "+ obj.id);
-               req.loginUserID=obj.id;
-               next();
-               return;
-            }
-        ).catch(
-            function(reason) {
-                authenticationFailed(req, res, next);
-            }
-        );
-    }
-
-};
-
-function authenticationFailed(req, res, next) {
-    var path = req.path;
-    if(path =="/" || path =="/callback" || path=="/wild/oauth/auth" || path=="/cat/oauth/getUserID")
-    {
-         logger.debug("authenticationFailed : path matched ");
-         next();
-         return;
-    }  
-    console.log("authenticationFailed -- ");
-    if(path.slice(1,5) == 'wild')
-    {
-        logger.debug("authenticationFailed : redirect request to home page ");
-        res.redirect('/');
-    }
-    res.status(401);
-    res.end();
-}
-
-
-app.use(cookieParser());
-app.use(myLogger);
-app.use(myAutheticator);
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-
 app.set('views', './views');
-app.use(express.static('public'));
+app.set('view engine', 'jade');
+app.use('/public', express.static('public'));
 
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({
+    extended: true
+})); // for parsing application/x-www-form-urlencoded
+
+app.use(myLogger);
+app.use(cookieParser());
+app.use(myAutheticator);
+app.use(interalServerError);
 
 // Homepage
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/views/index.html'));
+    fs.readFile('./public/browse.json', function(err, data) {
+        if (err) {
+            throw err;
+        }
+
+        var people = JSON.parse(data);
+
+        res.render('index', {
+            people: people,
+            person: {
+                "name": "Lisa Eng",
+                "image": "https://media.licdn.com/media/AAEAAQAAAAAAAALfAAAAJDU2YWFiZGM0LTgxZmEtNDcyZC05ODI4LTViZGM1YTg5MDkyOQ.jpg",
+                "work": ["Product Manager, Business Intelligence, Aereo", "Special Operations, Warby Parker Marketing, Quirky", "Special Customer Operations, Simon Schuster", "Associate, Triage Consulting Group"],
+                "education": ["MBA from NYU Stern Business School, University of California San Diego"],
+                "tags": ["strategy", "marketing", "tech", "SF", "49ers", "dogs", "consulting", "productmanager"],
+                "job": "Product Manager at Oracle Data Cloud",
+                "quote": "I am a dog-lover, 49ers fan, and tech enthusiast. Previously in New York, I live in San Francisco now with my husband and malti-poo dog, Izzo. Yes named after Coach Izzo!"
+            }
+        });
+    });
 });
 
+app.get('/schedule', function(req, res) {
+    fs.readFile('./public/browse.json', function(err, data) {
+        if (err) {
+            throw err;
+        }
 
-var fs = require('fs');
+        var people = JSON.parse(data);
+
+        res.render('schedule', {
+            people: people,
+            user: {
+                "name": "Stacey",
+                "image": "http://d9hhrg4mnvzow.cloudfront.net/womensilab.com/coffeechat2/bb0185b8-sussana-shuman_07107207106x000002.jpg",
+                "bio": "",
+                "tags": ["tech", "sf", "49ers"],
+                "job": "Northwestern University"
+            }
+        });
+    });
+});
+
+app.get('/match', function(req, res) {
+    res.render('match', {
+        user: {
+            "name": "Stacey",
+            "image": "http://d9hhrg4mnvzow.cloudfront.net/womensilab.com/coffeechat2/bb0185b8-sussana-shuman_07107207106x000002.jpg",
+            "bio": "",
+            "tags": ["tech", "sf", "49ers"],
+            "job": "Northwestern University"
+        },
+        match: {
+            "name": "Lisa Eng",
+            "image": "https://media.licdn.com/media/AAEAAQAAAAAAAALfAAAAJDU2YWFiZGM0LTgxZmEtNDcyZC05ODI4LTViZGM1YTg5MDkyOQ.jpg",
+            "work": ["Product Manager, Business Intelligence, Aereo", "Special Operations, Warby Parker Marketing, Quirky", "Special Customer Operations, Simon Schuster", "Associate, Triage Consulting Group"],
+            "education": ["MBA from NYU Stern Business School", "University of California San Diego"],
+            "tags": ["strategy", "marketing", "tech", "SF", "49ers", "dogs", "consulting", "productmanager"],
+            "job": "Product Manager at Oracle Data Cloud",
+            "quote": "I am a dog-lover, 49ers fan, and tech enthusiast. Previously in New York, I live in San Francisco now with my husband and malti-poo dog, Izzo. Yes named after Coach Izzo!"
+        }
+    });
+});
+
 var resource = null;
 fs.readFile('./resources/resources.txt', function(err, data) {
     if (err) throw err;
@@ -89,52 +154,38 @@ fs.readFile('./resources/resources.txt', function(err, data) {
     for (i in array) {
         logger.debug(array[i]);
         resource = require(array[i]);
-        if (typeof resource.getHandle === 'function')
-        {
-            logger.debug(resource.path+" GET");
-             app.get('/' + resource.path, resource.getHandle );
+
+        if (typeof resource.getHandle === 'function') {
+            logger.debug(resource.path + " GET");
+            app.get('/' + resource.path, resource.getHandle);
         }
-        if (typeof resource.postHandle === 'function')
-        {
-            logger.debug(resource.path+" POST");
-             app.post('/' + resource.path, resource.postHandle);
+        if (typeof resource.postHandle === 'function') {
+            logger.debug(resource.path + " POST");
+            app.post('/' + resource.path, resource.postHandle);
         }
-        if (typeof resource.putHandle === 'function')
-        {
-           logger.debug(resource.path+" PUT");
-             app.put('/' + resource.path, resource.putHandle);
-        }       
+        if (typeof resource.putHandle === 'function') {
+            logger.debug(resource.path + " PUT");
+            app.put('/' + resource.path, resource.putHandle);
+        }
     }
 });
 
-app.use(function(err, req, res, next) {
-  logger.error(err.stack);
-  res.status(500).send('Something broke!');
-});
-
-// var port = process.env.PORT || 1337;
 
 app.listen(port, function() {
     logger.debug('Example app listening on port %s!', port);
 });
 
-
-//process.stdin.resume();//so the program will not close instantly
-
-function exitHandler(options, err) {
-    if (options.cleanup){
-        dbConn.clearup();
-    } 
-    if (err) console.log(err.stack);
-    if (options.exit) process.exit();
-}
-
 //do something when app is closing
-process.on('exit', exitHandler.bind(null,{cleanup:true}));
+process.on('exit', exitHandler.bind(null, {
+    cleanup: true
+}));
 
 //catches ctrl+c event
-process.on('SIGINT', exitHandler.bind(null, {exit:true}));
+process.on('SIGINT', exitHandler.bind(null, {
+    exit: true
+}));
 
 //catches uncaught exceptions
-process.on('uncaughtException', exitHandler.bind(null, {exit:true}));
-
+process.on('uncaughtException', exitHandler.bind(null, {
+    exit: true
+}));
