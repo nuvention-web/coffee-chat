@@ -1,0 +1,3 @@
+[submodule "coffee-chat-web"]
+	path = coffee-chat-web
+	url = https://github.com/GregChan/coffee-chat-web.git
