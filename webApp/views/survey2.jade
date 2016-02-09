@@ -28,7 +28,7 @@ html
 						select
 							option(value="" disabled selected) Select a Year
 							-for(var x=2019; x>1939; --x)
-								option(value="1")=x				
+								option(value=x)=x				
 			div(class="row")
 				div(class="col s12")
 					p 4. Hobbies/Interests (Choose as many as you want)
@@ -37,10 +37,10 @@ html
 							for key in Object.keys(hobbies)
 								div(class="collapsible-header")=key
 								div(class="collapsible-body")
-									form(action="#")
-										for sport in hobbies[key]
-												input(id="1" type="checkbox")
-												label(for="1")=sport
+									for sport in hobbies[key]
+										form(action="#")
+											input(id=sport type="checkbox")
+											label(for=sport)=sport
 			div(class="row")
 				div(class="col s12")
 					p 5. Job features most important to you (Choose 3)
