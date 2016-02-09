@@ -1,6 +1,6 @@
 [submodule "Coffee-Chat---iOS"]
-	path = Coffee-Chat---iOS
-	url = https://github.com/NDHApps/Coffee-Chat---iOS
+path = Coffee-Chat---iOS
+url = https://github.com/NDHApps/Coffee-Chat---iOS
 [submodule "coffee-chat-web"]
-	path = coffee-chat-web
-	url = https://github.com/GregChan/coffee-chat-web.git
+path = coffee-chat-web
+url = https://github.com/GregChan/coffee-chat-web.git
