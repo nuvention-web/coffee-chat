@@ -1,6 +1,6 @@
 import json
 import gspread
-from oauth2client.client import SignedJwtAssertionCredentials
+from oauth2client.service_account import ServiceAccountCredentials
 
 class Person:
 	
@@ -46,9 +46,8 @@ class Person:
 		return response
 
 # Load credentials for gspead
-json_key = json.load(open('GSpread Module-e7ff722057e0.json'))
 scope = ['https://spreadsheets.google.com/feeds']
-credentials = SignedJwtAssertionCredentials(json_key['client_email'], json_key['private_key'].encode(), scope)
+credentials = ServiceAccountCredentials.from_json_keyfile_name('GSpread Module-e7ff722057e0.json', scope)
 gc = gspread.authorize(credentials)
 
 # Open Google spreadsheet
