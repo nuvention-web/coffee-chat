@@ -3,26 +3,28 @@ CoffeeChat
 
 Team Members
 ----------
-- Greg Chan - Full-stack Developer
+- Greg Chan - Developer
 - Tara Chang - Business Strategist
 - Avery Fisher - Designer
-- Nick Hall - Front-end / Mobile iOS Developer
-- Mukai Lu - Back-end Developer
-- Jason Lustbader - Back-end / Mobile iOS Developer 
+- Nick Hall - Developer
+- Mukai Lu - Developer
+- Jason Lustbader - Developer 
 - Chinye Osamusali - Content Strategist
-- Holliday Shuler - Front-end Developer
+- Holliday Shuler - Developer
 
 Overview
 ----------
-We believe that, at any career stage, by providing people with a way to make meaningful connections and conversations, we will offer value for participants in the form of professional growth.
+We simplify your development program by cutting out the tedious matching process with our algorithm, allowing your team members to better achieve their goals. We help companies who are serious about their employees’ growth manage, track, and facilitate internal professional development programs
 
-We are building a platform that is designed to facilitate making connections within specific communities, such as Women’s iLab, on a web platform with the goal of going mobile.
+Make Connections: Automatically or manually match people on your team to align to your program goals
 
-In order to pilot effectively, we are working within the Northwestern student and alumni network, but we are looking forward to bringing the product back to its roots of women’s leadership once we lock down the usability and functionalities
+Manage Development: See who is matching, when they are matching and how they respond to their match
+
+Improve Performance: Improve your development programs based on the feedback from the matches in the system
 
 Progress
 ----------
-Currently, we have a partially integrated front-end and back-end. 
+Our front and back ends are fully integrated on a web platform
 
 Directory Structure
 ----------
@@ -35,7 +37,7 @@ Owner: NDHApps
 
 Contact: nicholashall2016@u.northwestern.edu 
 
-Description: iOS code 
+Description: iOS code (abandoned)
 
 coffee-chat-web
 
@@ -48,12 +50,14 @@ Description: all of the code for the coffee chat website and backend
 #####Web Directory Structure
 ```
 coffee-chat-web
-	db: database connections
+	documents: sql files
 	logs: server log location
+	node_modules: modules supporting external functionalities integrated on the site       
 	public
 		js: front-end javascript
 		css: styles
 		images: pictures and images
+		fonts: fonts used in css
 	resources
 		wild: frontend resource server	
 			(handles requests from browsers and returns web pages)
@@ -65,6 +69,9 @@ coffee-chat-web
 	views
 		(views that are templated on the front-end)
 		includes: partials that are not full web pages
+		email-templates: templates for email notifications
+		error: error message pages
+		mixins: file partial to enable editable text
 ```
 
 
