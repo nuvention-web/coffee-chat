@@ -16,14 +16,11 @@ Overview
 ----------
 We simplify your development program by cutting out the tedious matching process with our algorithm, allowing your team members to better achieve their goals. We help companies who are  serious about their employees’ growth manage, track, and facilitate internal professional development programs
 
-Make Connections
-Automatically or manually match people on your team to align  to your program goals
+Make Connections: Automatically or manually match people on your team to align  to your program goals
 
-Manage Development
-See who is matching, when they are  matching and how they respond to their match
+Manage Development: See who is matching, when they are  matching and how they respond to their match
 
-Improve Performance
-Improve your development programs based on the feedback from the matches in the system
+Improve Performance: Improve your development programs based on the feedback from the matches in the system
 
 
 
